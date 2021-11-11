@@ -35,23 +35,23 @@ self.addEventListener("message", (event) => {
     height: 600,
     view: event.data.canvas,
     backgroundColor: 0x1099bb,
-    backgroundpha: 0,
+    backgroundAlpha: 1,
     antialias: true,
     resolution: window.devicePixelRatio || 1,
   });
 
   const container = new PIXI.Container();
   app.stage.addChild(container);
-  // 将容器移到中心
+  // center
   container.x = app.screen.width / 2;
   container.y = app.screen.height / 2;
 
-  // container.interactive = true; // 无效 document
+  // container.interactive = true;
   // container.on("click", (event) => {
-  //   console.log("click事件", event);
+  //   console.log("click", event);
   // });
 
-  // 创建兔子精灵
+  // create sprite
   imgToTexture("./test.jpg").then((texture) => {
     console.log(texture);
     const bunny = new PIXI.Sprite(texture);
@@ -60,7 +60,7 @@ self.addEventListener("message", (event) => {
     bunny.anchor.set(0.5);
     container.addChild(bunny);
   });
-  // 将兔子精灵移动到本地容器坐标的中心
+  // center
   container.pivot.x = container.width / 2;
   container.pivot.y = container.height / 2;
 
@@ -74,19 +74,17 @@ self.addEventListener("message", (event) => {
   graphics.endFill();
   container.addChild(graphics);
 
-  // 监听动画更新
   app.ticker.add((delta) => {
-    // 旋转容器！使用增量创建与帧无关的转换
     container.rotation -= 0.01 * delta;
   });
 });
 
-// 创建纹理
+// create texture
 async function imgToTexture(imgData) {
   const res = await fetch(imgData);
   // const buffer = await res.arrayBuffer();
   // const buffer = await blob.arrayBuffer();
-  // const texture = PIXI.Texture.fromBuffer(buffer, 100, 100); // 无效? Float32Array | Uint8Array ?
+  // const texture = PIXI.Texture.fromBuffer(buffer, 100, 100); // Why it is invalid? Float32Array | Uint8Array 
   const blob = await res.blob();
   const bitmap = await createImageBitmap(blob);
   const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
