@@ -1,41 +1,54 @@
-self.document = {
-  createElement(type) {
-    if (type === "canvas") {
-      return new OffscreenCanvas(0, 0);
-    } else {
-      console.log("CreateElement called with type = ", type);
-      return {
-        style: {},
-      };
-    }
-  },
-  addEventListener() {},
-};
+const listeners = (function () {
+  const listeners = [];
+  const addEventListener = (...args) => {
+    console.log('args', args);
+    listeners.push(args)
+  }; // 存储事件（只有部分事件可用）
+  self.document = {
+    createElement(type) {
+      if (type === "canvas") {
+        return new OffscreenCanvas(0, 0);
+      } else {
+        console.log("CreateElement called with type = ", type);
 
-self.window = {
-  console: self.console,
-  navigator: {},
-  document: self.document,
-  WebGLRenderingContext: {},
-  addEventListener() {},
-  removeEventListener: function () {},
-};
+        return {
+          style: {},
+          addEventListener,
+        };
+      }
+    },
+    body: {
+      appendChild() {},
+    },
+    addEventListener,
+  };
 
+  self.window = {
+    console: self.console,
+    navigator: {},
+    document: self.document,
+    addEventListener,
+    removeEventListener: function () {},
+    WebGLRenderingContext: self.WebGL2RenderingContext || self.WebGL2RenderingContext,
+    location: {},
+  };
+  return listeners;
+})();
 
 importScripts("pixi_v6.2.0_worker.js");
 console.log("PIXI---", PIXI);
 
-self.addEventListener("message", (event) => {
-  console.log("worker message event", event.data);
-  const { canvas } = event.data;
+let canvas;
+const start = (event) => {
+  canvas = event.data.canvas;
+  canvas.addEventListener = (...args) => listeners.push(args);
   canvas.style = {};
-
   const app = new PIXI.Application({
     width: 800,
     height: 600,
-    view: event.data.canvas,
+    view: canvas,
     backgroundColor: 0x1099bb,
-    backgroundpha: 0,
+    backgroundAlpha: 1,
     antialias: true,
     resolution: window.devicePixelRatio || 1,
   });
@@ -45,27 +58,21 @@ self.addEventListener("message", (event) => {
   // 将容器移到中心
   container.x = app.screen.width / 2;
   container.y = app.screen.height / 2;
-
-  // container.interactive = true; // 无效 document
-  // container.on("click", (event) => {
-  //   console.log("click事件", event);
-  // });
-
-  // 创建兔子精灵
+  // 创建纹理
   imgToTexture("./test.jpg").then((texture) => {
     console.log(texture);
-    const bunny = new PIXI.Sprite(texture);
-    bunny.width = 50;
-    bunny.height = 50;
-    bunny.anchor.set(0.5);
-    container.addChild(bunny);
+    const sprite = new PIXI.Sprite(texture);
+    sprite.width = 50;
+    sprite.height = 50;
+    sprite.anchor.set(0.5);
+    container.addChild(sprite);
   });
-  // 将兔子精灵移动到本地容器坐标的中心
+  // 将精灵移动到本地容器坐标的中心
   container.pivot.x = container.width / 2;
   container.pivot.y = container.height / 2;
 
-  // Rectangle
-  const graphics = new PIXI.Graphics();
+  // 绘图
+  const graphics = new PIXI.Graphics(); 
   graphics.beginFill(0xde3249);
   graphics.lineStyle(2, "#ff3300");
   graphics.drawRect(0, 0, 100, 100);
@@ -73,12 +80,42 @@ self.addEventListener("message", (event) => {
   graphics.lineTo(200, 200);
   graphics.endFill();
   container.addChild(graphics);
+  // 事件
+  container.interactive = true;
+  container.interactiveChildren = true;
+
+  container.on("mousemove", e => {
+    container.x = e.data.global.x;
+    container.y = e.data.global.y;
+  })
+  container.on("mousedown", e => {
+    console.log("mousedown", e);
+    container.x = e.data.global.x;
+    container.y = e.data.global.y;
+  })
+
+  console.log('listeners', listeners);
 
   // 监听动画更新
   app.ticker.add((delta) => {
-    // 旋转容器！使用增量创建与帧无关的转换
-    container.rotation -= 0.01 * delta;
+    container.rotation -= 0.01 * delta; // 旋转容器！使用增量创建与帧无关的转换
   });
+}
+
+self.addEventListener("message", (event) => {
+  switch (event.data.type) {
+    case "start":
+      start(event);
+      break;
+    case "event":
+      const fn = listeners.find(([t]) => t === event.data.event.type); // TODO:仅执行第一个匹配的，需要优化
+      event.data.event.data.target = canvas;
+      event.data.event.data.preventDefault = () => void 0;
+      if (fn) {
+        fn[1](event.data.event.data);
+      }
+      break;
+  }
 });
 
 // 创建纹理

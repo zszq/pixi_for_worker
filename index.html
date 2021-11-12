@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pixi.js for worker</title>
+  
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="800" height="600"></canvas>
+
+  <script>
+    function cloneEvent(e) {
+      const exclude = [
+        "path",
+        "view",
+        "target",
+        "srcElement",
+        "currentTarget",
+        "sourceCapabilities",
+        "toElement",
+      ];
+      if (e === undefined || e === null) return undefined;
+      const clone = {};
+      for (const p in e) {
+        if (exclude.find((el) => el === p)) {
+          continue;
+        }
+        if (typeof e[p] === "function") {
+          continue;
+        }
+        clone[p] = e[p];
+      }
+  
+      return clone;
+    }
+  
+    var pixiWorker = new Worker("worker.js");
+  
+    const eventListeners = { // 仅部分事件可用
+      keydown: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "keydown", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
+      mousemove: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "mousemove", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
+      // mouseover: (e) => { // error
+      //   pixiWorker.postMessage({
+      //     type: "event",
+      //     event: { type: "mouseover", data: cloneEvent(e) },
+      //     messageType: "notify",
+      //     eventId: -1,
+      //   });
+      // },
+      // mouseout: (e) => { // error
+      //   pixiWorker.postMessage({
+      //     type: "event",
+      //     event: { type: "mouseout", data: cloneEvent(e) },
+      //     messageType: "notify",
+      //     eventId: -1,
+      //   });
+      // },
+      mousedown: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "mousedown", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
+      mouseup: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "mouseup", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
+    };
+  
+    const canvas = document.querySelector("canvas");
+    const offscreen = canvas.transferControlToOffscreen();
+    
+    document.body.addEventListener("keydown", eventListeners.keydown, false);
+    canvas.addEventListener("mousemove", eventListeners.mousemove, true);
+    // canvas.addEventListener("mouseover", eventListeners.mouseover, true); // error
+    // canvas.addEventListener("mouseout", eventListeners.mouseout, true); // error
+    canvas.addEventListener("mousedown", eventListeners.mousedown, true);
+    document.body.addEventListener("mouseup", eventListeners.mouseup, true);
+  
+    pixiWorker.postMessage({
+      type: "start",
+      hostname: window.location.hostname,
+      width: 500,
+      height: 500,
+      canvas: offscreen,
+    }, [offscreen]);
+
+  </script>
+</body>
+</html>
