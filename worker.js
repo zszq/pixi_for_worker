@@ -116,8 +116,24 @@ const start = (event) => {
     graphics.x = e.data.global.x - 20;
     graphics.y = e.data.global.y - 20;
   })
+  container.on("mouseupoutside", e => {
+    console.log("mouseupoutside-worker", e);
+  })
+  // mouse -> click
   container.on("click", e => {
     console.log("click-worker", e);
+  })
+  container.on("rightclick", e => {
+    console.log("rightclick-worker", e);
+  })
+  container.on("rightdown", e => {
+    console.log("rightdown-worker", e);
+  })
+  container.on("rightup", e => {
+    console.log("rightup-worker", e);
+  })
+  container.on("rightupoutside", e => {
+    console.log("rightupoutside-worker", e);
   })
 
   console.log('listeners', listeners);
