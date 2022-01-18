@@ -4,3 +4,5 @@ To make PIXI work in web worker you need two things:
 
 Passing events to pixi requires some trickery, i.e. capturing calls to addEventListener, so you can store them and use for your proxied events. 
 You can see all required hacks in worker.js.
+
+在worker中使用pixi.js，支持渲染纹理和交互事件，其他影响未进行全面测试，期待官方原生支持。
