@@ -1,3 +1,4 @@
+// TODO: removeEventListener
 const listeners = (function () {
   const listeners = [];
   const addEventListener = (...args) => { listeners.push(args) }; // 存储事件（只有部分事件可用）
@@ -30,6 +31,17 @@ const listeners = (function () {
     WebGLRenderingContext: self.WebGL2RenderingContext || self.WebGLRenderingContext,
     location: {},
   };
+
+  // 劫持pixi.js中使用self.addEventListener绑定的事件 TODO:待测试
+  self.addEventListenerNative = self.addEventListener;
+  const workerEvent = ['message', 'error', 'messageerror'];
+  self.addEventListener = (...args) => {
+    if (workerEvent.includes(args[0])) {
+      self.addEventListenerNative(...args);
+    } else {
+      listeners.push(args);
+    }
+  }
 
   return listeners;
 })();
@@ -80,15 +92,32 @@ const start = (event) => {
   container.interactive = true;
   container.interactiveChildren = true;
 
+  container.on("keydown", e => {
+    console.log("keydown-worker", e);
+  })
   container.on("mousemove", e => {
     // console.log("mousemove-worker", e);
     // container.x = e.data.global.x;
     // container.y = e.data.global.y;
   })
+  container.on("mouseover", e => {
+    console.log("mouseover-worker", e);
+  })
+  container.on("mouseout", e => {
+    console.log("mouseout-worker", e);
+  })
   container.on("mousedown", e => {
     console.log("mousedown-worker", e);
     graphics.x = e.data.global.x;
     graphics.y = e.data.global.y;
+  })
+  container.on("mouseup", e => { // 劫持addEventListener实现
+    console.log("mouseup-worker", e);
+    graphics.x = e.data.global.x - 20;
+    graphics.y = e.data.global.y - 20;
+  })
+  container.on("click", e => {
+    console.log("click-worker", e);
   })
 
   console.log('listeners', listeners);
@@ -126,7 +155,7 @@ self.addEventListener("message", (event) => {
       start(event);
       break;
     case "event":
-      const fn = listeners.find(([t]) => t === event.data.event.type); // TODO:仅执行第一个匹配的，需要优化
+      const fn = listeners.find(([t]) => t === event.data.event.type);
       event.data.event.data.target = canvas;
       event.data.event.data.preventDefault = () => void 0;
       if (fn) {

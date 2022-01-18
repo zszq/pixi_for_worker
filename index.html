@@ -29,6 +29,8 @@
         "currentTarget",
         "sourceCapabilities",
         "toElement",
+        "fromElement",
+        "relatedTarget"
       ];
       if (e === undefined || e === null) return undefined;
       const clone = {};
@@ -47,7 +49,7 @@
   
     var pixiWorker = new Worker("worker.js");
   
-    const eventListeners = { // 仅部分事件可用
+    const eventListeners = {
       keydown: (e) => {
         pixiWorker.postMessage({
           type: "event",
@@ -64,22 +66,6 @@
           eventId: -1,
         });
       },
-      // mouseover: (e) => { // error
-      //   pixiWorker.postMessage({
-      //     type: "event",
-      //     event: { type: "mouseover", data: cloneEvent(e) },
-      //     messageType: "notify",
-      //     eventId: -1,
-      //   });
-      // },
-      // mouseout: (e) => { // error
-      //   pixiWorker.postMessage({
-      //     type: "event",
-      //     event: { type: "mouseout", data: cloneEvent(e) },
-      //     messageType: "notify",
-      //     eventId: -1,
-      //   });
-      // },
       mousedown: (e) => {
         pixiWorker.postMessage({
           type: "event",
@@ -96,6 +82,30 @@
           eventId: -1,
         });
       },
+      mouseover: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "mouseover", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
+      mouseout: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "mouseout", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
+      click: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "click", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
     };
   
     const canvas = document.querySelector("canvas");
@@ -103,10 +113,11 @@
     
     document.body.addEventListener("keydown", eventListeners.keydown, false);
     canvas.addEventListener("mousemove", eventListeners.mousemove, true);
-    // canvas.addEventListener("mouseover", eventListeners.mouseover, true); // error
-    // canvas.addEventListener("mouseout", eventListeners.mouseout, true); // error
     canvas.addEventListener("mousedown", eventListeners.mousedown, true);
     document.body.addEventListener("mouseup", eventListeners.mouseup, true);
+    canvas.addEventListener("mouseover", eventListeners.mouseover, true);
+    canvas.addEventListener("mouseout", eventListeners.mouseout, true);
+    canvas.addEventListener("click", eventListeners.click, true);
   
     pixiWorker.postMessage({
       type: "start",
