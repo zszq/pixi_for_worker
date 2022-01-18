@@ -22,15 +22,15 @@ const listeners = (function () {
     addEventListener,
   };
 
-  self.window = {
-    console: self.console,
-    navigator: {},
-    document: self.document,
-    addEventListener,
-    removeEventListener: function () {},
-    WebGLRenderingContext: self.WebGL2RenderingContext || self.WebGLRenderingContext,
-    location: {},
-  };
+  // self.window = {
+  //   console: self.console,
+  //   navigator: {},
+  //   document: self.document,
+  //   addEventListener,
+  //   removeEventListener: function () {},
+  //   WebGLRenderingContext: self.WebGL2RenderingContext || self.WebGLRenderingContext,
+  //   location: {},
+  // };
 
   // 劫持pixi.js中使用self.addEventListener绑定的事件 TODO:待测试
   self.addEventListenerNative = self.addEventListener;
@@ -64,7 +64,7 @@ const start = (event) => {
     backgroundColor: 0x1099bb,
     backgroundAlpha: 1,
     antialias: true,
-    resolution: window.devicePixelRatio || 1,
+    // resolution: window.devicePixelRatio || 1,
   });
 
   const container = new PIXI.Container();
