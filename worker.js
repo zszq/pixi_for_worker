@@ -1,7 +1,16 @@
-// TODO: removeEventListener
 const listeners = (function () {
   const listeners = [];
-  const addEventListener = (...args) => { listeners.push(args) }; // 存储事件（只有部分事件可用）
+  // 存储事件
+  const addEventListener = (...args) => { listeners.push(args) };
+  // 删除事件
+  const removeEventListener = (...args) => {
+    for (let i = 0; i < listeners.length; i++) {
+      const listener = listeners[i];
+      if (listener[0] === args[0]) {
+        listeners.splice(i, 1);
+      }
+    }
+  };
 
   self.document = {
     createElement(type) {
@@ -13,6 +22,7 @@ const listeners = (function () {
         return {
           style: {},
           addEventListener,
+          removeEventListener
         };
       }
     },
@@ -20,26 +30,36 @@ const listeners = (function () {
       appendChild() {},
     },
     addEventListener,
+    removeEventListener
   };
 
-  // self.window = {
-  //   console: self.console,
-  //   navigator: {},
-  //   document: self.document,
-  //   addEventListener,
-  //   removeEventListener: function () {},
-  //   WebGLRenderingContext: self.WebGL2RenderingContext || self.WebGLRenderingContext,
-  //   location: {},
-  // };
+  self.window = {
+    console: self.console,
+    navigator: {},
+    document: self.document,
+    addEventListener,
+    removeEventListener,
+    WebGLRenderingContext: self.WebGL2RenderingContext || self.WebGLRenderingContext,
+    location: {},
+  };
 
-  // 劫持pixi.js中使用self.addEventListener绑定的事件 TODO:待测试
-  self.addEventListenerNative = self.addEventListener;
   const workerEvent = ['message', 'error', 'messageerror'];
+  // 劫持self.addEventListener
+  self.addEventListenerNative = self.addEventListener;
   self.addEventListener = (...args) => {
     if (workerEvent.includes(args[0])) {
       self.addEventListenerNative(...args);
     } else {
-      listeners.push(args);
+      addEventListener(...args);
+    }
+  }
+  // 劫持self.removeEventListener
+  self.removeEventListenerNative = self.removeEventListener;
+  self.removeEventListener = (...args) => {
+    if (workerEvent.includes(args[0])) {
+      self.removeEventListenerNative(...args);
+    } else {
+      removeEventListener(...args);
     }
   }
 
@@ -55,7 +75,18 @@ let canvas;
 const start = (event) => {
   canvas = event.data.canvas;
   canvas.addEventListener = (...args) => listeners.push(args);
+  canvas.removeEventListener = (...args) => {
+    for (let i = 0; i < listeners.length; i++) {
+      const listener = listeners[i];
+      if (listener[0] === args[0]) {
+        listeners.splice(i, 1);
+      }
+    }
+  };
   canvas.style = {};
+  // canvas.getBoundingClientRect = () => event.data.clientRect; // 按键tab事件
+
+
 
   const app = new PIXI.Application({
     width: 800,
@@ -111,7 +142,7 @@ const start = (event) => {
     graphics.x = e.data.global.x;
     graphics.y = e.data.global.y;
   })
-  container.on("mouseup", e => { // 劫持addEventListener实现
+  container.on("mouseup", e => {
     console.log("mouseup-worker", e);
     graphics.x = e.data.global.x - 20;
     graphics.y = e.data.global.y - 20;

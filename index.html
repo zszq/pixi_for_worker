@@ -50,14 +50,6 @@
     var pixiWorker = new Worker("worker.js");
   
     const eventListeners = {
-      keydown: (e) => {
-        pixiWorker.postMessage({
-          type: "event",
-          event: { type: "keydown", data: cloneEvent(e) },
-          messageType: "notify",
-          eventId: -1,
-        });
-      },
       mousemove: (e) => {
         pixiWorker.postMessage({
           type: "event",
@@ -98,23 +90,36 @@
           eventId: -1,
         });
       },
+      // 只允许了按键tab事件，暂不处理
+      // 用于辅助功能管理器重新创建了选项卡和屏幕阅读器阅读内容的能力,可以帮助残障人士访问 PixiJS 内容.
+      // keydown: (e) => {
+      //   pixiWorker.postMessage({
+      //     type: "event",
+      //     event: { type: "keydown", data: cloneEvent(e) },
+      //     messageType: "notify",
+      //     eventId: -1,
+      //   });
+      // },
     };
   
     const canvas = document.querySelector("canvas");
     const offscreen = canvas.transferControlToOffscreen();
     
     document.body.addEventListener("keydown", eventListeners.keydown, false);
-    canvas.addEventListener("mousemove", eventListeners.mousemove, true);
-    canvas.addEventListener("mousedown", eventListeners.mousedown, true);
+    document.body.addEventListener("mousemove", eventListeners.mousemove, true);
     document.body.addEventListener("mouseup", eventListeners.mouseup, true);
+    canvas.addEventListener("mousedown", eventListeners.mousedown, true);
     canvas.addEventListener("mouseover", eventListeners.mouseover, true);
     canvas.addEventListener("mouseout", eventListeners.mouseout, true);
+
+    // let clientRect = canvas.getBoundingClientRect(); // 按键tab事件
   
     pixiWorker.postMessage({
       type: "start",
       hostname: window.location.hostname,
       width: 500,
       height: 500,
+      // clientRect, // 按键tab事件
       canvas: offscreen,
     }, [offscreen]);
 
