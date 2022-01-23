@@ -105,7 +105,7 @@
     const canvas = document.querySelector("canvas");
     const offscreen = canvas.transferControlToOffscreen();
     
-    document.body.addEventListener("keydown", eventListeners.keydown, false);
+    // document.body.addEventListener("keydown", eventListeners.keydown, false);
     document.body.addEventListener("mousemove", eventListeners.mousemove, true);
     document.body.addEventListener("mouseup", eventListeners.mouseup, true);
     canvas.addEventListener("mousedown", eventListeners.mousedown, true);

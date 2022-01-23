@@ -122,10 +122,7 @@ const start = (event) => {
   // 事件
   container.interactive = true;
   container.interactiveChildren = true;
-
-  container.on("keydown", e => {
-    console.log("keydown-worker", e);
-  })
+  
   container.on("mousemove", e => {
     // console.log("mousemove-worker", e);
     // container.x = e.data.global.x;
