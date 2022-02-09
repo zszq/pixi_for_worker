@@ -1,6 +1,6 @@
 /*!
- * pixi.js - v6.2.1
- * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+ * pixi.js - v6.2.2
+ * Compiled Wed, 26 Jan 2022 16:23:27 UTC
  *
  * pixi.js is licensed under the MIT License.
  * http://www.opensource.org/licenses/mit-license
@@ -423,8 +423,8 @@ var PIXI = (function (exports) {
     };
   
     /*!
-     * @pixi/polyfill - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/polyfill - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/polyfill is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -659,8 +659,8 @@ var PIXI = (function (exports) {
     }
   
     /*!
-     * @pixi/settings - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/settings - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/settings is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -722,8 +722,8 @@ var PIXI = (function (exports) {
     }
   
     /*!
-     * @pixi/constants - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/constants - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/constants is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -3971,8 +3971,8 @@ var PIXI = (function (exports) {
     };
   
     /*!
-     * @pixi/constants - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/constants - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/constants is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -4486,8 +4486,8 @@ var PIXI = (function (exports) {
     })(exports.BUFFER_TYPE || (exports.BUFFER_TYPE = {}));
   
     /*!
-     * @pixi/utils - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/utils - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/utils is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -4545,7 +4545,7 @@ var PIXI = (function (exports) {
     settings.FAIL_IF_MAJOR_PERFORMANCE_CAVEAT = false;
   
     var saidHello = false;
-    var VERSION = '6.2.1';
+    var VERSION = '6.2.2';
     /**
      * Skips the hello message of renderers that are created after this is run.
      *
@@ -5709,8 +5709,8 @@ var PIXI = (function (exports) {
     };
   
     /*!
-     * @pixi/math - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/math - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/math is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -7329,8 +7329,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/display - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/display - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/display is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -8719,8 +8719,8 @@ var PIXI = (function (exports) {
     DisplayObject.prototype.displayObjectUpdateTransform = DisplayObject.prototype.updateTransform;
   
     /*!
-     * @pixi/constants - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/constants - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/constants is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -9831,8 +9831,8 @@ var PIXI = (function (exports) {
     Container.prototype.containerUpdateTransform = Container.prototype.updateTransform;
   
     /*!
-     * @pixi/accessibility - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/accessibility - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/accessibility is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -10376,8 +10376,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/ticker - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/ticker - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/ticker is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -10588,7 +10588,7 @@ var PIXI = (function (exports) {
             this._maxElapsedMS = 100;
             /**
              * Internal value managed by minFPS property setter and getter.
-             * This is the maximum allowed milliseconds between updates.
+             * This is the minimum allowed milliseconds between updates.
              */
             this._minElapsedMS = 0;
             /** If enabled, deleting is disabled.*/
@@ -11120,8 +11120,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/interaction - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/interaction - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/interaction is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -13359,8 +13359,8 @@ var PIXI = (function (exports) {
     }(eventemitter3));
   
     /*!
-     * @pixi/runner - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/runner - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/runner is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -13548,8 +13548,8 @@ var PIXI = (function (exports) {
     });
   
     /*!
-     * @pixi/core - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/core - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/core is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -17935,6 +17935,9 @@ var PIXI = (function (exports) {
             rect.height = y1 - y0;
         };
         FilterSystem.prototype.roundFrame = function (frame, resolution, bindingSourceFrame, bindingDestinationFrame, transform) {
+            if (frame.width <= 0 || frame.height <= 0 || bindingSourceFrame.width <= 0 || bindingSourceFrame.height <= 0) {
+                return;
+            }
             if (transform) {
                 var a = transform.a, b = transform.b, c = transform.c, d = transform.d;
                 // Skip if skew/rotation present in matrix, except for multiple of 90掳 rotation. If rotation
@@ -24553,8 +24556,8 @@ var PIXI = (function (exports) {
     }
   
     /*!
-     * @pixi/app - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/app - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/app is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -24818,8 +24821,8 @@ var PIXI = (function (exports) {
     Application.registerPlugin(ResizePlugin);
   
     /*!
-     * @pixi/extract - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/extract - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/extract is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -25026,8 +25029,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/loaders - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/loaders - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/loaders is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -26409,8 +26412,8 @@ var PIXI = (function (exports) {
      *
      * ```js
      * const loader = PIXI.Loader.shared; // PixiJS exposes a premade instance for you to use.
-     * //or
-     * const loader = new PIXI.Loader(); // you can also create your own if you want
+     * // or
+     * const loader = new PIXI.Loader(); // You can also create your own if you want
      *
      * const sprites = {};
      *
@@ -26448,7 +26451,6 @@ var PIXI = (function (exports) {
      * loader.onComplete.add(() => {}); // called once when the queued resources all load.
      * ```
      *
-     * @class Loader
      * @memberof PIXI
      */
     var Loader = /** @class */ (function () {
@@ -26460,6 +26462,35 @@ var PIXI = (function (exports) {
             var _this = this;
             if (baseUrl === void 0) { baseUrl = ''; }
             if (concurrency === void 0) { concurrency = 10; }
+            /**
+             * The progress percent of the loader going through the queue.
+             */
+            this.progress = 0;
+            /**
+             * Loading state of the loader, true if it is currently loading resources.
+             */
+            this.loading = false;
+            /**
+             * A querystring to append to every URL added to the loader.
+             *
+             * This should be a valid query string *without* the question-mark (`?`). The loader will
+             * also *not* escape values for you. Make sure to escape your parameters with
+             * [`encodeURIComponent`](https://mdn.io/encodeURIComponent) before assigning this property.
+             *
+             * @example
+             * const loader = new Loader();
+             *
+             * loader.defaultQueryString = 'user=me&password=secret';
+             *
+             * // This will request 'image.png?user=me&password=secret'
+             * loader.add('image.png').load();
+             *
+             * loader.reset();
+             *
+             * // This will request 'image.png?v=1&user=me&password=secret'
+             * loader.add('iamge.png?v=1').load();
+             */
+            this.defaultQueryString = '';
             /**
              * The middleware to run before loading each resource.
              */
@@ -26475,23 +26506,15 @@ var PIXI = (function (exports) {
             /**
              * The `_loadResource` function bound with this object context.
              *
-             * @private
-             * @member {function}
-             * @param {PIXI.LoaderResource} r - The resource to load
-             * @param {Function} d - The dequeue function
-             * @return {undefined}
+             * @param r - The resource to load
+             * @param d - The dequeue function
              */
             this._boundLoadResource = function (r, d) { return _this._loadResource(r, d); };
             /**
              * All the resources for this loader keyed by name.
-             *
-             * @member {object<string, PIXI.LoaderResource>}
              */
             this.resources = {};
             this.baseUrl = baseUrl;
-            this.progress = 0;
-            this.loading = false;
-            this.defaultQueryString = '';
             this._beforeMiddleware = [];
             this._afterMiddleware = [];
             this._resourcesParsing = [];
@@ -26518,12 +26541,13 @@ var PIXI = (function (exports) {
         }
         /**
          * Same as add, params have strict order
+         *
          * @private
          * @param name - The name of the resource to load.
          * @param url - The url for this resource, relative to the baseUrl of this loader.
          * @param options - The options for the load.
          * @param callback - Function to call when this specific resource completes loading.
-         * @return {this} Returns itself.
+         * @return The loader itself.
          */
         Loader.prototype._add = function (name, url, options, callback) {
             // if loading already you can only add resources that have a parent.
@@ -26569,7 +26593,7 @@ var PIXI = (function (exports) {
          * resource is loaded.
          *
          * @param fn - The middleware function to register.
-         * @return Returns itself.
+         * @return The loader itself.
          */
         Loader.prototype.pre = function (fn) {
             this._beforeMiddleware.push(fn);
@@ -26580,7 +26604,7 @@ var PIXI = (function (exports) {
          * resource is loaded.
          *
          * @param fn - The middleware function to register.
-         * @return Returns itself.
+         * @return The loader itself.
          */
         Loader.prototype.use = function (fn) {
             this._afterMiddleware.push(fn);
@@ -26589,7 +26613,7 @@ var PIXI = (function (exports) {
         /**
          * Resets the queue of the loader to prepare for a new load.
          *
-         * @return Returns itself.
+         * @return The loader itself.
          */
         Loader.prototype.reset = function () {
             this.progress = 0;
@@ -26611,8 +26635,8 @@ var PIXI = (function (exports) {
         };
         /**
          * Starts loading the queued resources.
-         * @param [cb] - Optional callback that will be bound to the `complete` event.
-         * @return Returns itself.
+         * @param cb - Optional callback that will be bound to the `complete` event.
+         * @return The loader itself.
          */
         Loader.prototype.load = function (cb) {
             // register complete callback if they pass one
@@ -26645,13 +26669,11 @@ var PIXI = (function (exports) {
             /**
              * The number of resources to load concurrently.
              *
-             * @member {number}
              * @default 10
              */
             get: function () {
                 return this._queue.concurrency;
             },
-            // eslint-disable-next-line require-jsdoc
             set: function (concurrency) {
                 this._queue.concurrency = concurrency;
             },
@@ -26696,9 +26718,8 @@ var PIXI = (function (exports) {
         /**
          * Loads a single resource.
          *
-         * @private
-         * @param {PIXI.LoaderResource} resource - The resource to load.
-         * @param {function} dequeue - The function to call when we need to dequeue this item.
+         * @param resource - The resource to load.
+         * @param dequeue - The function to call when we need to dequeue this item.
          */
         Loader.prototype._loadResource = function (resource, dequeue) {
             var _this = this;
@@ -26847,7 +26868,6 @@ var PIXI = (function (exports) {
      * import {AppLoaderPlugin} from '@pixi/loaders';
      * import {Application} from '@pixi/app';
      * Application.registerPlugin(AppLoaderPlugin);
-     * @class
      * @memberof PIXI
      */
     var AppLoaderPlugin = /** @class */ (function () {
@@ -26855,19 +26875,13 @@ var PIXI = (function (exports) {
         }
         /**
          * Called on application constructor
-         * @param {object} options
+         *
          * @private
          */
         AppLoaderPlugin.init = function (options) {
             options = Object.assign({
                 sharedLoader: false,
             }, options);
-            /**
-             * Loader instance to help with asset loading.
-             * @memberof PIXI.Application#
-             * @type {PIXI.Loader}
-             * @readonly
-             */
             this.loader = options.sharedLoader ? Loader.shared : new Loader();
         };
         /**
@@ -27044,8 +27058,8 @@ var PIXI = (function (exports) {
     Loader.registerPlugin(TextureLoader);
   
     /*!
-     * @pixi/compressed-textures - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/compressed-textures - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/compressed-textures is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -28267,8 +28281,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/particle-container - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/particle-container - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/particle-container is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -28326,16 +28340,14 @@ var PIXI = (function (exports) {
      *
      * And here you have a hundred sprites that will be rendered at the speed of light.
      *
-     * @class
-     * @extends PIXI.Container
      * @memberof PIXI
      */
     var ParticleContainer = /** @class */ (function (_super) {
         __extends$4(ParticleContainer, _super);
         /**
-         * @param {number} [maxSize=1500] - The maximum number of particles that can be rendered by the container.
+         * @param maxSize - The maximum number of particles that can be rendered by the container.
          *  Affects size of allocated buffers.
-         * @param {object} [properties] - The properties of children that should be uploaded to the gpu and applied.
+         * @param properties - The properties of children that should be uploaded to the gpu and applied.
          * @param {boolean} [properties.vertices=false] - When true, vertices be uploaded and applied.
          *                  if sprite's ` scale/anchor/trim/frame/orig` is dynamic, please set `true`.
          * @param {boolean} [properties.position=true] - When true, position be uploaded and applied.
@@ -28358,86 +28370,18 @@ var PIXI = (function (exports) {
             if (batchSize > maxBatchSize) {
                 batchSize = maxBatchSize;
             }
-            /**
-             * Set properties to be dynamic (true) / static (false)
-             *
-             * @member {boolean[]}
-             * @private
-             */
             _this._properties = [false, true, false, false, false];
-            /**
-             * @member {number}
-             * @private
-             */
             _this._maxSize = maxSize;
-            /**
-             * @member {number}
-             * @private
-             */
             _this._batchSize = batchSize;
-            /**
-             * @member {Array<PIXI.Buffer>}
-             * @private
-             */
             _this._buffers = null;
-            /**
-             * for every batch stores _updateID corresponding to the last change in that batch
-             * @member {number[]}
-             * @private
-             */
             _this._bufferUpdateIDs = [];
-            /**
-             * when child inserted, removed or changes position this number goes up
-             * @member {number[]}
-             * @private
-             */
             _this._updateID = 0;
-            /**
-             * @member {boolean}
-             *
-             */
             _this.interactiveChildren = false;
-            /**
-             * The blend mode to be applied to the sprite. Apply a value of `PIXI.BLEND_MODES.NORMAL`
-             * to reset the blend mode.
-             *
-             * @member {number}
-             * @default PIXI.BLEND_MODES.NORMAL
-             * @see PIXI.BLEND_MODES
-             */
             _this.blendMode = exports.BLEND_MODES.NORMAL;
-            /**
-             * If true, container allocates more batches in case there are more than `maxSize` particles.
-             * @member {boolean}
-             * @default false
-             */
             _this.autoResize = autoResize;
-            /**
-             * If true PixiJS will Math.floor() x/y values when rendering, stopping pixel interpolation.
-             * Advantages can include sharper image quality (like text) and faster rendering on canvas.
-             * The main disadvantage is movement of objects may appear less smooth.
-             * Default to true here as performance is usually the priority for particles.
-             *
-             * @member {boolean}
-             * @default true
-             */
             _this.roundPixels = true;
-            /**
-             * The texture used to render the children.
-             *
-             * @readonly
-             * @member {PIXI.BaseTexture}
-             */
             _this.baseTexture = null;
             _this.setProperties(properties);
-            /**
-             * The tint applied to the container.
-             * This is a hex value. A value of 0xFFFFFF will remove any tint effect.
-             *
-             * @private
-             * @member {number}
-             * @default 0xFFFFFF
-             */
             _this._tint = 0;
             _this.tintRgb = new Float32Array(4);
             _this.tint = 0xFFFFFF;
@@ -28446,7 +28390,7 @@ var PIXI = (function (exports) {
         /**
          * Sets the private properties array to dynamic / static based on the passed properties object
          *
-         * @param {object} properties - The properties to be uploaded
+         * @param properties - The properties to be uploaded
          */
         ParticleContainer.prototype.setProperties = function (properties) {
             if (properties) {
@@ -28459,11 +28403,6 @@ var PIXI = (function (exports) {
                     ? !!properties.tint || !!properties.alpha : this._properties[4];
             }
         };
-        /**
-         * Updates the object transform for rendering
-         *
-         * @private
-         */
         ParticleContainer.prototype.updateTransform = function () {
             // TODO don't need to!
             this.displayObjectUpdateTransform();
@@ -28472,8 +28411,8 @@ var PIXI = (function (exports) {
             /**
              * The tint applied to the container. This is a hex value.
              * A value of 0xFFFFFF will remove any tint effect.
-             ** IMPORTANT: This is a WebGL only feature and will be ignored by the canvas renderer.
-             * @member {number}
+             * IMPORTANT: This is a WebGL only feature and will be ignored by the canvas renderer.
+             *
              * @default 0xFFFFFF
              */
             get: function () {
@@ -28487,10 +28426,9 @@ var PIXI = (function (exports) {
             configurable: true
         });
         /**
-         * Renders the container using the WebGL renderer
+         * Renders the container using the WebGL renderer.
          *
-         * @private
-         * @param {PIXI.Renderer} renderer - The webgl renderer
+         * @param renderer - The WebGL renderer.
          */
         ParticleContainer.prototype.render = function (renderer) {
             var _this = this;
@@ -28509,8 +28447,7 @@ var PIXI = (function (exports) {
         /**
          * Set the flag that static data should be updated to true
          *
-         * @private
-         * @param {number} smallestChildIndex - The smallest child index
+         * @param smallestChildIndex - The smallest child index.
          */
         ParticleContainer.prototype.onChildrenChange = function (smallestChildIndex) {
             var bufferIndex = Math.floor(smallestChildIndex / this._batchSize);
@@ -28530,7 +28467,7 @@ var PIXI = (function (exports) {
         /**
          * Destroys the container
          *
-         * @param {object|boolean} [options] - Options parameter. A boolean will act as if all options
+         * @param options - Options parameter. A boolean will act as if all options
          *  have been set to that value
          * @param {boolean} [options.children=false] - if set to true, all the children will have their
          *  destroy method called as well. 'options' will be passed on to those calls.
@@ -28563,13 +28500,11 @@ var PIXI = (function (exports) {
     /**
      * The particle buffer manages the static and dynamic buffers for a particle container.
      *
-     * @class
      * @private
      * @memberof PIXI
      */
     var ParticleBuffer = /** @class */ (function () {
         /**
-         * @private
          * @param {object} properties - The properties to upload.
          * @param {boolean[]} dynamicPropertyFlags - Flags for which properties are dynamic.
          * @param {number} size - The size of the batch.
@@ -28577,26 +28512,8 @@ var PIXI = (function (exports) {
         function ParticleBuffer(properties, dynamicPropertyFlags, size) {
             this.geometry = new Geometry();
             this.indexBuffer = null;
-            /**
-             * The number of particles the buffer can hold
-             *
-             * @private
-             * @member {number}
-             */
             this.size = size;
-            /**
-             * A list of the properties that are dynamic.
-             *
-             * @private
-             * @member {object[]}
-             */
             this.dynamicProperties = [];
-            /**
-             * A list of the properties that are static.
-             *
-             * @private
-             * @member {object[]}
-             */
             this.staticProperties = [];
             for (var i = 0; i < properties.length; ++i) {
                 var property = properties[i];
@@ -28627,20 +28544,10 @@ var PIXI = (function (exports) {
             this._updateID = 0;
             this.initBuffers();
         }
-        /**
-         * Sets up the renderer context and necessary buffers.
-         *
-         * @private
-         */
+        /** Sets up the renderer context and necessary buffers. */
         ParticleBuffer.prototype.initBuffers = function () {
             var geometry = this.geometry;
             var dynamicOffset = 0;
-            /**
-             * Holds the indices of the geometry (quads) to draw
-             *
-             * @member {Uint16Array}
-             * @private
-             */
             this.indexBuffer = new Buffer(createIndicesForQuads(this.size), true, true);
             geometry.addIndex(this.indexBuffer);
             this.dynamicStride = 0;
@@ -28679,10 +28586,9 @@ var PIXI = (function (exports) {
         /**
          * Uploads the dynamic properties.
          *
-         * @private
-         * @param {PIXI.DisplayObject[]} children - The children to upload.
-         * @param {number} startIndex - The index to start at.
-         * @param {number} amount - The number to upload.
+         * @param children - The children to upload.
+         * @param startIndex - The index to start at.
+         * @param amount - The number to upload.
          */
         ParticleBuffer.prototype.uploadDynamic = function (children, startIndex, amount) {
             for (var i = 0; i < this.dynamicProperties.length; i++) {
@@ -28694,10 +28600,9 @@ var PIXI = (function (exports) {
         /**
          * Uploads the static properties.
          *
-         * @private
-         * @param {PIXI.DisplayObject[]} children - The children to upload.
-         * @param {number} startIndex - The index to start at.
-         * @param {number} amount - The number to upload.
+         * @param children - The children to upload.
+         * @param startIndex - The index to start at.
+         * @param amount - The number to upload.
          */
         ParticleBuffer.prototype.uploadStatic = function (children, startIndex, amount) {
             for (var i = 0; i < this.staticProperties.length; i++) {
@@ -28706,11 +28611,7 @@ var PIXI = (function (exports) {
             }
             this.staticBuffer._updateID++;
         };
-        /**
-         * Destroys the ParticleBuffer.
-         *
-         * @private
-         */
+        /** Destroys the ParticleBuffer. */
         ParticleBuffer.prototype.destroy = function () {
             this.indexBuffer = null;
             this.dynamicProperties = null;
@@ -28745,13 +28646,12 @@ var PIXI = (function (exports) {
     /**
      * Renderer for Particles that is designer for speed over feature set.
      *
-     * @class
      * @memberof PIXI
      */
     var ParticleRenderer = /** @class */ (function (_super) {
         __extends$4(ParticleRenderer, _super);
         /**
-         * @param {PIXI.Renderer} renderer - The renderer this sprite batch works for.
+         * @param renderer - The renderer this sprite batch works for.
          */
         function ParticleRenderer(renderer) {
             var _this = _super.call(this, renderer) || this;
@@ -28760,11 +28660,6 @@ var PIXI = (function (exports) {
             // and max number of element in the index buffer is 16384 * 6 = 98304
             // Creating a full index buffer, overhead is 98304 * 2 = 196Ko
             // let numIndices = 98304;
-            /**
-             * The default shader that is used if a sprite doesn't have a more specific one.
-             *
-             * @member {PIXI.Shader}
-             */
             _this.shader = null;
             _this.properties = null;
             _this.tempMatrix = new Matrix();
@@ -28806,19 +28701,13 @@ var PIXI = (function (exports) {
                     offset: 0,
                 } ];
             _this.shader = Shader.from(vertex$1, fragment$1, {});
-            /**
-             * The WebGL state in which this renderer will work.
-             *
-             * @member {PIXI.State}
-             * @readonly
-             */
             _this.state = State.for2d();
             return _this;
         }
         /**
          * Renders the particle container object.
          *
-         * @param {PIXI.ParticleContainer} container - The container to render using this ParticleRenderer
+         * @param container - The container to render using this ParticleRenderer.
          */
         ParticleRenderer.prototype.render = function (container) {
             var children = container.children;
@@ -28873,11 +28762,10 @@ var PIXI = (function (exports) {
             }
         };
         /**
-         * Creates one particle buffer for each child in the container we want to render and updates internal properties
+         * Creates one particle buffer for each child in the container we want to render and updates internal properties.
          *
-         * @param {PIXI.ParticleContainer} container - The container to render using this ParticleRenderer
-         * @return {PIXI.ParticleBuffer[]} The buffers
-         * @private
+         * @param container - The container to render using this ParticleRenderer
+         * @return - The buffers
          */
         ParticleRenderer.prototype.generateBuffers = function (container) {
             var buffers = [];
@@ -28890,11 +28778,10 @@ var PIXI = (function (exports) {
             return buffers;
         };
         /**
-         * Creates one more particle buffer, because container has autoResize feature
+         * Creates one more particle buffer, because container has autoResize feature.
          *
-         * @param {PIXI.ParticleContainer} container - The container to render using this ParticleRenderer
-         * @return {PIXI.ParticleBuffer} generated buffer
-         * @private
+         * @param container - The container to render using this ParticleRenderer
+         * @return - The generated buffer
          */
         ParticleRenderer.prototype._generateOneMoreBuffer = function (container) {
             var batchSize = container._batchSize;
@@ -28904,12 +28791,12 @@ var PIXI = (function (exports) {
         /**
          * Uploads the vertices.
          *
-         * @param {PIXI.DisplayObject[]} children - the array of display objects to render
-         * @param {number} startIndex - the index to start from in the children array
-         * @param {number} amount - the amount of children that will have their vertices uploaded
-         * @param {number[]} array - The vertices to upload.
-         * @param {number} stride - Stride to use for iteration.
-         * @param {number} offset - Offset to start at.
+         * @param children - the array of display objects to render
+         * @param startIndex - the index to start from in the children array
+         * @param amount - the amount of children that will have their vertices uploaded
+         * @param array - The vertices to upload.
+         * @param stride - Stride to use for iteration.
+         * @param offset - Offset to start at.
          */
         ParticleRenderer.prototype.uploadVertices = function (children, startIndex, amount, array, stride, offset) {
             var w0 = 0;
@@ -28951,12 +28838,12 @@ var PIXI = (function (exports) {
         /**
          * Uploads the position.
          *
-         * @param {PIXI.DisplayObject[]} children - the array of display objects to render
-         * @param {number} startIndex - the index to start from in the children array
-         * @param {number} amount - the amount of children that will have their positions uploaded
-         * @param {number[]} array - The vertices to upload.
-         * @param {number} stride - Stride to use for iteration.
-         * @param {number} offset - Offset to start at.
+         * @param children - the array of display objects to render
+         * @param startIndex - the index to start from in the children array
+         * @param amount - the amount of children that will have their positions uploaded
+         * @param array - The vertices to upload.
+         * @param stride - Stride to use for iteration.
+         * @param offset - Offset to start at.
          */
         ParticleRenderer.prototype.uploadPosition = function (children, startIndex, amount, array, stride, offset) {
             for (var i = 0; i < amount; i++) {
@@ -28975,12 +28862,12 @@ var PIXI = (function (exports) {
         /**
          * Uploads the rotation.
          *
-         * @param {PIXI.DisplayObject[]} children - the array of display objects to render
-         * @param {number} startIndex - the index to start from in the children array
-         * @param {number} amount - the amount of children that will have their rotation uploaded
-         * @param {number[]} array - The vertices to upload.
-         * @param {number} stride - Stride to use for iteration.
-         * @param {number} offset - Offset to start at.
+         * @param children - the array of display objects to render
+         * @param startIndex - the index to start from in the children array
+         * @param amount - the amount of children that will have their rotation uploaded
+         * @param array - The vertices to upload.
+         * @param stride - Stride to use for iteration.
+         * @param offset - Offset to start at.
          */
         ParticleRenderer.prototype.uploadRotation = function (children, startIndex, amount, array, stride, offset) {
             for (var i = 0; i < amount; i++) {
@@ -28993,14 +28880,14 @@ var PIXI = (function (exports) {
             }
         };
         /**
-         * Uploads the Uvs
+         * Uploads the UVs.
          *
-         * @param {PIXI.DisplayObject[]} children - the array of display objects to render
-         * @param {number} startIndex - the index to start from in the children array
-         * @param {number} amount - the amount of children that will have their rotation uploaded
-         * @param {number[]} array - The vertices to upload.
-         * @param {number} stride - Stride to use for iteration.
-         * @param {number} offset - Offset to start at.
+         * @param children - the array of display objects to render
+         * @param startIndex - the index to start from in the children array
+         * @param amount - the amount of children that will have their rotation uploaded
+         * @param array - The vertices to upload.
+         * @param stride - Stride to use for iteration.
+         * @param offset - Offset to start at.
          */
         ParticleRenderer.prototype.uploadUvs = function (children, startIndex, amount, array, stride, offset) {
             for (var i = 0; i < amount; ++i) {
@@ -29033,12 +28920,12 @@ var PIXI = (function (exports) {
         /**
          * Uploads the tint.
          *
-         * @param {PIXI.DisplayObject[]} children - the array of display objects to render
-         * @param {number} startIndex - the index to start from in the children array
-         * @param {number} amount - the amount of children that will have their rotation uploaded
-         * @param {number[]} array - The vertices to upload.
-         * @param {number} stride - Stride to use for iteration.
-         * @param {number} offset - Offset to start at.
+         * @param children - the array of display objects to render
+         * @param startIndex - the index to start from in the children array
+         * @param amount - the amount of children that will have their rotation uploaded
+         * @param array - The vertices to upload.
+         * @param stride - Stride to use for iteration.
+         * @param offset - Offset to start at.
          */
         ParticleRenderer.prototype.uploadTint = function (children, startIndex, amount, array, stride, offset) {
             for (var i = 0; i < amount; ++i) {
@@ -29055,9 +28942,7 @@ var PIXI = (function (exports) {
                 offset += stride * 4;
             }
         };
-        /**
-         * Destroys the ParticleRenderer.
-         */
+        /** Destroys the ParticleRenderer. */
         ParticleRenderer.prototype.destroy = function () {
             _super.prototype.destroy.call(this);
             if (this.shader) {
@@ -29070,8 +28955,8 @@ var PIXI = (function (exports) {
     }(ObjectRenderer));
   
     /*!
-     * @pixi/graphics - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/graphics - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/graphics is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -31792,6 +31677,7 @@ var PIXI = (function (exports) {
             var data = this._geometry.graphicsData;
             return data.length === 1
                 && data[0].shape.type === exports.SHAPES.RECT
+                && !data[0].matrix
                 && !data[0].holes.length
                 && !(data[0].lineStyle.visible && data[0].lineStyle.width);
         };
@@ -32114,8 +32000,8 @@ var PIXI = (function (exports) {
     };
   
     /*!
-     * @pixi/sprite - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/sprite - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/sprite is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -32370,17 +32256,20 @@ var PIXI = (function (exports) {
         Sprite.prototype.getLocalBounds = function (rect) {
             // we can do a fast local bounds if the sprite has no children!
             if (this.children.length === 0) {
-                this._bounds.minX = this._texture.orig.width * -this._anchor._x;
-                this._bounds.minY = this._texture.orig.height * -this._anchor._y;
-                this._bounds.maxX = this._texture.orig.width * (1 - this._anchor._x);
-                this._bounds.maxY = this._texture.orig.height * (1 - this._anchor._y);
+                if (!this._localBounds) {
+                    this._localBounds = new Bounds();
+                }
+                this._localBounds.minX = this._texture.orig.width * -this._anchor._x;
+                this._localBounds.minY = this._texture.orig.height * -this._anchor._y;
+                this._localBounds.maxX = this._texture.orig.width * (1 - this._anchor._x);
+                this._localBounds.maxY = this._texture.orig.height * (1 - this._anchor._y);
                 if (!rect) {
                     if (!this._localBoundsRect) {
                         this._localBoundsRect = new Rectangle();
                     }
                     rect = this._localBoundsRect;
                 }
-                return this._bounds.getRectangle(rect);
+                return this._localBounds.getRectangle(rect);
             }
             return _super.prototype.getLocalBounds.call(this, rect);
         };
@@ -32566,8 +32455,8 @@ var PIXI = (function (exports) {
     }(Container));
   
     /*!
-     * @pixi/text - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/text - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/text is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -34066,10 +33955,12 @@ var PIXI = (function (exports) {
                     context.strokeStyle = 'black';
                     var dropShadowColor = style.dropShadowColor;
                     var rgb = hex2rgb(typeof dropShadowColor === 'number' ? dropShadowColor : string2hex(dropShadowColor));
+                    var dropShadowBlur = style.dropShadowBlur * this._resolution;
+                    var dropShadowDistance = style.dropShadowDistance * this._resolution;
                     context.shadowColor = "rgba(" + rgb[0] * 255 + "," + rgb[1] * 255 + "," + rgb[2] * 255 + "," + style.dropShadowAlpha + ")";
-                    context.shadowBlur = style.dropShadowBlur;
-                    context.shadowOffsetX = Math.cos(style.dropShadowAngle) * style.dropShadowDistance;
-                    context.shadowOffsetY = (Math.sin(style.dropShadowAngle) * style.dropShadowDistance) + dsOffsetShadow;
+                    context.shadowBlur = dropShadowBlur;
+                    context.shadowOffsetX = Math.cos(style.dropShadowAngle) * dropShadowDistance;
+                    context.shadowOffsetY = (Math.sin(style.dropShadowAngle) * dropShadowDistance) + dsOffsetShadow;
                 }
                 else {
                     // set canvas text styles
@@ -34159,7 +34050,11 @@ var PIXI = (function (exports) {
                 else {
                     this.context.fillText(currentChar, currentPosition, y);
                 }
-                currentWidth = this.context.measureText(text.substring(i + 1)).width;
+                var textStr = '';
+                for (var j = i + 1; j < stringArray.length; ++j) {
+                    textStr += stringArray[j];
+                }
+                currentWidth = this.context.measureText(textStr).width;
                 currentPosition += previousWidth - currentWidth + letterSpacing;
                 previousWidth = currentWidth;
             }
@@ -34462,8 +34357,8 @@ var PIXI = (function (exports) {
     }(Sprite));
   
     /*!
-     * @pixi/prepare - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/prepare - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/prepare is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -35012,8 +34907,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/spritesheet - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/spritesheet - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/spritesheet is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -35326,8 +35221,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/sprite-tiling - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/sprite-tiling - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/sprite-tiling is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -35687,8 +35582,8 @@ var PIXI = (function (exports) {
     }(ObjectRenderer));
   
     /*!
-     * @pixi/mesh - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/mesh - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/mesh is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -36333,8 +36228,8 @@ var PIXI = (function (exports) {
     }(Geometry));
   
     /*!
-     * @pixi/text-bitmap - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/text-bitmap - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/text-bitmap is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -36750,13 +36645,15 @@ var PIXI = (function (exports) {
         // set canvas text styles
         context.fillStyle = generateFillStyle(canvas, context, style, resolution, [char], metrics);
         context.strokeStyle = style.stroke;
-        var dropShadowColor = style.dropShadowColor;
-        var rgb = hex2rgb(typeof dropShadowColor === 'number' ? dropShadowColor : string2hex(dropShadowColor));
         if (style.dropShadow) {
+            var dropShadowColor = style.dropShadowColor;
+            var rgb = hex2rgb(typeof dropShadowColor === 'number' ? dropShadowColor : string2hex(dropShadowColor));
+            var dropShadowBlur = style.dropShadowBlur * resolution;
+            var dropShadowDistance = style.dropShadowDistance * resolution;
             context.shadowColor = "rgba(" + rgb[0] * 255 + "," + rgb[1] * 255 + "," + rgb[2] * 255 + "," + style.dropShadowAlpha + ")";
-            context.shadowBlur = style.dropShadowBlur;
-            context.shadowOffsetX = Math.cos(style.dropShadowAngle) * style.dropShadowDistance;
-            context.shadowOffsetY = Math.sin(style.dropShadowAngle) * style.dropShadowDistance;
+            context.shadowBlur = dropShadowBlur;
+            context.shadowOffsetX = Math.cos(style.dropShadowAngle) * dropShadowDistance;
+            context.shadowOffsetY = Math.sin(style.dropShadowAngle) * dropShadowDistance;
         }
         else {
             context.shadowColor = 'black';
@@ -37921,8 +37818,8 @@ var PIXI = (function (exports) {
     }());
   
     /*!
-     * @pixi/filter-alpha - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/filter-alpha - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/filter-alpha is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -38004,8 +37901,8 @@ var PIXI = (function (exports) {
     }(Filter));
   
     /*!
-     * @pixi/filter-blur - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/filter-blur - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/filter-blur is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -38102,8 +37999,8 @@ var PIXI = (function (exports) {
     }
   
     /*!
-     * @pixi/constants - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/constants - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/constants is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -38902,8 +38799,8 @@ var PIXI = (function (exports) {
     }(Filter));
   
     /*!
-     * @pixi/filter-color-matrix - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/filter-color-matrix - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/filter-color-matrix is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -39443,8 +39340,8 @@ var PIXI = (function (exports) {
     ColorMatrixFilter.prototype.grayscale = ColorMatrixFilter.prototype.greyscale;
   
     /*!
-     * @pixi/filter-displacement - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/filter-displacement - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/filter-displacement is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -39568,8 +39465,8 @@ var PIXI = (function (exports) {
     }(Filter));
   
     /*!
-     * @pixi/filter-fxaa - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/filter-fxaa - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/filter-fxaa is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -39626,8 +39523,8 @@ var PIXI = (function (exports) {
     }(Filter));
   
     /*!
-     * @pixi/filter-noise - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/filter-noise - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/filter-noise is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -39719,16 +39616,16 @@ var PIXI = (function (exports) {
     }(Filter));
   
     /*!
-     * @pixi/mixin-cache-as-bitmap - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/mixin-cache-as-bitmap - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/mixin-cache-as-bitmap is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
      */
   
     /*!
-     * @pixi/constants - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/constants - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/constants is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -40618,8 +40515,8 @@ var PIXI = (function (exports) {
     };
   
     /*!
-     * @pixi/mixin-get-child-by-name - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/mixin-get-child-by-name - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/mixin-get-child-by-name is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -40665,8 +40562,8 @@ var PIXI = (function (exports) {
     };
   
     /*!
-     * @pixi/mixin-get-global-position - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/mixin-get-global-position - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/mixin-get-global-position is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -40697,8 +40594,8 @@ var PIXI = (function (exports) {
     };
   
     /*!
-     * @pixi/mesh-extras - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/mesh-extras - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/mesh-extras is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -41352,8 +41249,8 @@ var PIXI = (function (exports) {
     }(SimplePlane));
   
     /*!
-     * @pixi/sprite-animated - v6.2.1
-     * Compiled Tue, 21 Dec 2021 19:56:15 UTC
+     * @pixi/sprite-animated - v6.2.2
+     * Compiled Wed, 26 Jan 2022 16:23:27 UTC
      *
      * @pixi/sprite-animated is licensed under the MIT License.
      * http://www.opensource.org/licenses/mit-license
@@ -41725,7 +41622,7 @@ var PIXI = (function (exports) {
      * @name VERSION
      * @type {string}
      */
-    var VERSION$1 = '6.2.1';
+    var VERSION$1 = '6.2.2';
     /**
      * @namespace PIXI
      */

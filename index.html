@@ -7,10 +7,6 @@
   <title>pixi.js for worker</title>
   
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-    }
     canvas {
       border: 1px solid black;
     }
@@ -112,17 +108,33 @@
     canvas.addEventListener("mouseover", eventListeners.mouseover, true);
     canvas.addEventListener("mouseout", eventListeners.mouseout, true);
 
-    // let clientRect = canvas.getBoundingClientRect(); // 按键tab事件
+    let boundingClientRect = canvas.getBoundingClientRect();
   
     pixiWorker.postMessage({
       type: "start",
       hostname: window.location.hostname,
       width: 500,
       height: 500,
-      // clientRect, // 按键tab事件
+      boundingClientRect,
       canvas: offscreen,
     }, [offscreen]);
 
+  </script>
+
+  <script>
+    (function () {
+      var script = document.createElement('script');
+      script.onload = function () {
+        var stats = new Stats();
+        document.body.appendChild(stats.dom);
+        requestAnimationFrame(function loop() {
+          stats.update();
+          requestAnimationFrame(loop);
+        });
+      };
+      script.src = './stats.js';
+      document.head.appendChild(script);
+    })()
   </script>
 </body>
 </html>

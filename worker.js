@@ -68,7 +68,7 @@ const listeners = (function () {
 
 
 
-importScripts("pixi_v6.2.1_worker.js");
+importScripts("pixi_v6.2.2_worker.js");
 console.log("PIXI---", PIXI);
 
 let canvas;
@@ -84,7 +84,8 @@ const start = (event) => {
     }
   };
   canvas.style = {};
-  // canvas.getBoundingClientRect = () => event.data.clientRect; // 按键tab事件
+  canvas.parentElement = {};
+  canvas.getBoundingClientRect = () => event.data.boundingClientRect;
 
 
 
