@@ -63,12 +63,18 @@ const listeners = (function () {
     }
   }
 
+  // v6.3.2 line:14698 if (source instanceof HTMLImageElement) { error
+  self.HTMLImageElement = function () {};
+  self.HTMLVideoElement = function () {};
+  self.HTMLCanvasElement = function () {};
+
   return listeners;
 })();
 
 
 
-importScripts("pixi_v6.2.2_worker.js");
+// importScripts("pixi_v6.2.2_worker.js");
+importScripts("pixi.js_v6.3.2.js");
 console.log("PIXI---", PIXI);
 
 let canvas;
@@ -176,9 +182,8 @@ const start = (event) => {
 // 创建纹理
 async function imgToTexture(imgData) {
   const res = await fetch(imgData);
-  // const buffer = await res.arrayBuffer();
-  // const buffer = await blob.arrayBuffer();
-  // const texture = PIXI.Texture.fromBuffer(buffer, 100, 100); // 无效? Float32Array | Uint8Array ?
+  // const arrayBuffer = await res.arrayBuffer();
+  // const texture = PIXI.Texture.fromBuffer(new Uint8Array(arrayBuffer), 100, 100); // 点状?
   const blob = await res.blob();
   const bitmap = await createImageBitmap(blob);
   const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
