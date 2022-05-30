@@ -1,7 +1,9 @@
 const listeners = (function () {
   const listeners = [];
   // 存储事件
-  const addEventListener = (...args) => { listeners.push(args) };
+  const addEventListener = (...args) => {
+    listeners.push(args);
+  };
   // 删除事件
   const removeEventListener = (...args) => {
     for (let i = 0; i < listeners.length; i++) {
@@ -22,15 +24,17 @@ const listeners = (function () {
         return {
           style: {},
           addEventListener,
-          removeEventListener
+          removeEventListener,
         };
       }
     },
     body: {
       appendChild() {},
+      addEventListener,
+      removeEventListener,
     },
     addEventListener,
-    removeEventListener
+    removeEventListener,
   };
 
   self.window = {
@@ -39,11 +43,12 @@ const listeners = (function () {
     document: self.document,
     addEventListener,
     removeEventListener,
-    WebGLRenderingContext: self.WebGL2RenderingContext || self.WebGLRenderingContext,
+    WebGLRenderingContext:
+      self.WebGL2RenderingContext || self.WebGLRenderingContext,
     location: {},
   };
 
-  const workerEvent = ['message', 'error', 'messageerror'];
+  const workerEvent = ["message", "error", "messageerror"];
   // 劫持self.addEventListener
   self.addEventListenerNative = self.addEventListener;
   self.addEventListener = (...args) => {
@@ -52,7 +57,7 @@ const listeners = (function () {
     } else {
       addEventListener(...args);
     }
-  }
+  };
   // 劫持self.removeEventListener
   self.removeEventListenerNative = self.removeEventListener;
   self.removeEventListener = (...args) => {
@@ -61,9 +66,9 @@ const listeners = (function () {
     } else {
       removeEventListener(...args);
     }
-  }
+  };
 
-  // v6.3.2 line:14698 'if (source instanceof HTMLImageElement) {' error
+  // fix error: v6.3.2 line:14698 'if (source instanceof HTMLImageElement) {'
   self.HTMLImageElement = function () {};
   self.HTMLVideoElement = function () {};
   self.HTMLCanvasElement = function () {};
@@ -71,17 +76,17 @@ const listeners = (function () {
   return listeners;
 })();
 
-
-
 importScripts("./library/pixi.js");
 console.log("PIXI---", PIXI);
-importScripts("./library/graphology.js");
-console.log("graphology---", graphology);
+
 importScripts("./library/viewport.min.js");
 console.log("viewport---", pixi_viewport);
+// importScripts("./library/graphology.js");
+// console.log("graphology---", graphology);
 
 let canvas;
 const start = (event) => {
+  // 处理offscreen对象相关引用
   canvas = event.data.canvas;
   canvas.addEventListener = (...args) => listeners.push(args);
   canvas.removeEventListener = (...args) => {
@@ -94,10 +99,9 @@ const start = (event) => {
   };
   canvas.style = {};
   canvas.parentElement = {};
-  canvas.getBoundingClientRect = () => event.data.boundingClientRect;
+  canvas.getBoundingClientRect = () => event.data.boundingClientRect; // 重要！修复坐标问题
 
-
-
+  // 实例化PIXI
   const app = new PIXI.Application({
     width: 800,
     height: 600,
@@ -108,6 +112,24 @@ const start = (event) => {
     // resolution: window.devicePixelRatio || 1,
   });
 
+  // 实例化viewport
+  const viewport = new pixi_viewport.Viewport({
+    screenWidth: 800,
+    screenHeight: 600,
+    worldWidth: 800,
+    worldHeight: 600,
+    interaction: app.renderer.plugins.interaction,
+    // divWheel: canvas
+  });
+  app.stage.addChild(viewport);
+  viewport.drag().pinch().wheel().decelerate();
+  // 测试viewport
+  const sprite = viewport.addChild(new PIXI.Sprite(PIXI.Texture.WHITE));
+  sprite.tint = 0xff0000;
+  sprite.width = sprite.height = 100;
+  sprite.position.set(100, 100);
+
+  // 测试pixi
   const container = new PIXI.Container();
   app.stage.addChild(container);
   // 创建纹理
@@ -123,7 +145,7 @@ const start = (event) => {
   });
 
   // 绘图
-  const graphics = new PIXI.Graphics(); 
+  const graphics = new PIXI.Graphics();
   graphics.beginFill(0xde3249);
   graphics.lineStyle(2, "#ff3300");
   graphics.drawRect(0, 0, 100, 100);
@@ -132,56 +154,55 @@ const start = (event) => {
   // 事件
   container.interactive = true;
   container.interactiveChildren = true;
-  
-  container.on("mousemove", e => {
+
+  container.on("mousemove", (e) => {
     // console.log("mousemove-worker", e);
     // container.x = e.data.global.x;
     // container.y = e.data.global.y;
-  })
-  container.on("mouseover", e => {
+  });
+  container.on("mouseover", (e) => {
     console.log("mouseover-worker", e);
-  })
-  container.on("mouseout", e => {
+  });
+  container.on("mouseout", (e) => {
     console.log("mouseout-worker", e);
-  })
-  container.on("mousedown", e => {
+  });
+  container.on("mousedown", (e) => {
     console.log("mousedown-worker", e);
     graphics.x = e.data.global.x;
     graphics.y = e.data.global.y;
-  })
-  container.on("mouseup", e => {
+  });
+  container.on("mouseup", (e) => {
     console.log("mouseup-worker", e);
     graphics.x = e.data.global.x - 20;
     graphics.y = e.data.global.y - 20;
-  })
-  container.on("mouseupoutside", e => {
+  });
+  container.on("mouseupoutside", (e) => {
     console.log("mouseupoutside-worker", e);
-  })
+  });
   // mouse -> click
-  container.on("click", e => {
+  container.on("click", (e) => {
     console.log("click-worker", e);
-  })
-  container.on("rightclick", e => {
+  });
+  container.on("rightclick", (e) => {
     console.log("rightclick-worker", e);
-  })
-  container.on("rightdown", e => {
+  });
+  container.on("rightdown", (e) => {
     console.log("rightdown-worker", e);
-  })
-  container.on("rightup", e => {
+  });
+  container.on("rightup", (e) => {
     console.log("rightup-worker", e);
-  })
-  container.on("rightupoutside", e => {
+  });
+  container.on("rightupoutside", (e) => {
     console.log("rightupoutside-worker", e);
-  })
+  });
 
-  console.log('listeners', listeners);
+  console.log("listeners", listeners);
 
   // 监听动画更新
   // app.ticker.add((delta) => {
   //   container.rotation -= 0.01 * delta; // 旋转容器！使用增量创建与帧无关的转换
   // });
-  
-}
+};
 
 // 创建纹理
 function imgToTexture(imgData) {
@@ -196,12 +217,10 @@ function imgToTexture(imgData) {
     ctx.drawImage(bitmap, 10, 10, bitmap.width, bitmap.height);
     bitmap.close();
     const texture = PIXI.Texture.from(canvas);
-    
+
     resolve(texture);
   });
 }
-
-
 
 self.addEventListener("message", (event) => {
   switch (event.data.type) {

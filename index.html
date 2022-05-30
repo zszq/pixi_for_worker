@@ -96,6 +96,15 @@
       //     eventId: -1,
       //   });
       // },
+
+      wheel: (e) => {
+        pixiWorker.postMessage({
+          type: "event",
+          event: { type: "wheel", data: cloneEvent(e) },
+          messageType: "notify",
+          eventId: -1,
+        });
+      },
     };
   
     const canvas = document.querySelector("canvas");
@@ -107,6 +116,8 @@
     canvas.addEventListener("mousedown", eventListeners.mousedown, true);
     canvas.addEventListener("mouseover", eventListeners.mouseover, true);
     canvas.addEventListener("mouseout", eventListeners.mouseout, true);
+
+    document.body.addEventListener("wheel", eventListeners.wheel);
 
     let boundingClientRect = canvas.getBoundingClientRect();
   
