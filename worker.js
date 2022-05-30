@@ -177,22 +177,23 @@ const start = (event) => {
   // app.ticker.add((delta) => {
   //   container.rotation -= 0.01 * delta; // 旋转容器！使用增量创建与帧无关的转换
   // });
+  
 }
 
 // 创建纹理
-async function imgToTexture(imgData) {
-  const res = await fetch(imgData);
-  // const arrayBuffer = await res.arrayBuffer();
-  // const texture = PIXI.Texture.fromBuffer(new Uint8Array(arrayBuffer), 100, 100); // 点状?
-  const blob = await res.blob();
-  const bitmap = await createImageBitmap(blob);
-  const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
-  const ctx = canvas.getContext("2d", { alpha: true, antialias: true });
-  ctx.drawImage(bitmap, 10, 10, bitmap.width, bitmap.height);
-  bitmap.close();
-  const texture = PIXI.Texture.from(canvas);
-
-  return new Promise((resolve, reject) => {
+function imgToTexture(imgData) {
+  return new Promise(async (resolve, reject) => {
+    const res = await fetch(imgData);
+    // const arrayBuffer = await res.arrayBuffer();
+    // const texture = PIXI.Texture.fromBuffer(new Uint8Array(arrayBuffer), 100, 100); // 点状?
+    const blob = await res.blob();
+    const bitmap = await createImageBitmap(blob);
+    const canvas = new OffscreenCanvas(bitmap.width, bitmap.height);
+    const ctx = canvas.getContext("2d", { alpha: true, antialias: true });
+    ctx.drawImage(bitmap, 10, 10, bitmap.width, bitmap.height);
+    bitmap.close();
+    const texture = PIXI.Texture.from(canvas);
+    
     resolve(texture);
   });
 }
