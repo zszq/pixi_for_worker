@@ -63,7 +63,7 @@ const listeners = (function () {
     }
   }
 
-  // v6.3.2 line:14698 if (source instanceof HTMLImageElement) { error
+  // v6.3.2 line:14698 'if (source instanceof HTMLImageElement) {' error
   self.HTMLImageElement = function () {};
   self.HTMLVideoElement = function () {};
   self.HTMLCanvasElement = function () {};
@@ -73,9 +73,12 @@ const listeners = (function () {
 
 
 
-// importScripts("pixi_v6.2.2_worker.js");
-importScripts("pixi.js_v6.3.2.js");
+importScripts("./library/pixi.js");
 console.log("PIXI---", PIXI);
+importScripts("./library/graphology.js");
+console.log("graphology---", graphology);
+importScripts("./library/viewport.min.js");
+console.log("viewport---", pixi_viewport);
 
 let canvas;
 const start = (event) => {
